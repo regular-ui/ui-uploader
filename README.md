@@ -21,8 +21,7 @@ Regular UI - Uploader
 
 ## Uploader（上传）
 
-- 基础示例+API: https://regular-ui.github.io/ui-uploader/uploader/index.html
-- 进阶案例: https://regular-ui.github.io/ui-uploader/uploader/case.html
+- 基础示例+进阶案例+API: https://regular-ui.github.io/ui-uploader/uploader/index.html
 
 ## Copyright and License
 
