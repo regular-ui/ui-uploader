@@ -31,7 +31,7 @@ const Uploader = Component.extend({
      * @override
      */
     config() {
-        this.data = Object.assign({
+        this.defaults({
             url: '',
             contentType: 'multipart/form-data',
             dataType: 'json',
@@ -41,7 +41,7 @@ const Uploader = Component.extend({
             maxSize: '',
             sending: false,
             _id: new Date().getTime(),
-        }, this.data);
+        });
         this.supr();
     },
     /**
