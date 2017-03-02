@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <link rel="icon" href="https://regular-ui.github.io/v0.2/img/favicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="https://regular-ui.github.io/v0.2/img/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="https://regular-ui.github.io/v0.2/css/doc.default.min.css">
+<link rel="stylesheet" href="https://regular-ui.github.io/v0.2/css/docs.default.min.css">
 <link rel="stylesheet" href="../css/index.css">
 <!--[if lt IE9]>
 <script>
@@ -106,46 +106,48 @@
 
         <h2 id="API">API</h2>
 
-<h3 id="Class">Class</h3>
-<h4>Uploader</h4>
-<p>继承自<strong>Component</strong>。</p>
-<p></p>
-<div id="j-class"></div>
 
-<h3 id="Options">Options</h3>
-<h4>new Uploader()</h4>
-<table>
-    <thead>
-        <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
-    </thead>
-    <tbody>
-        
+    <h3 id="Class">Class</h3>
+    <h4>Uploader</h4>
+    <p>继承自<strong></strong>。</p>
+    <p></p>
+    <div id="j-class"></div>
+
+    <h3 id="Options">Options</h3>
+    <h4>new Uploader()</h4>
+    <table>
+        <thead>
+            <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
+        </thead>
+        <tbody>
             
-            <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac"></td><td>绑定属性</td></tr>
+                
+                <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">Object</td><td class="f-wsn"></td><td class="f-tac"></td><td>绑定属性</td></tr>
+                
+                <tr><td class="f-wsn"><code>data.url</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>上传路径</td></tr>
+                
+                <tr><td class="f-wsn"><code>data.dataType</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;json&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>接收数据类型。可以是：`text`、`xml`、`json`。</td></tr>
+                
+                <tr><td class="f-wsn"><code>data.data</code></td><td class="f-wsn">Object</td><td class="f-wsn"></td><td class="f-tac">outside  =&gt; inside</td><td>附加数据</td></tr>
+                
+                <tr><td class="f-wsn"><code>data.name</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;file&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>上传文件的name</td></tr>
+                
+                <tr><td class="f-wsn"><code>data.extensions</code></td><td class="f-wsn">string<br>string[]</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>可上传的扩展名。默认为空，表示可上传任意文件类型的文件；可以为字符串，多个扩展名用`,`隔开，如：&#39;png,jpg,gif&#39;；也可以为数组，如：[&#39;png&#39;, &#39;jpg&#39;, &#39;gif&#39;]。</td></tr>
+                
+                <tr><td class="f-wsn"><code>data.maxSize</code></td><td class="f-wsn">string<br>number</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`。</td></tr>
+                
+                <tr><td class="f-wsn"><code>data.sending</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outside &lt;=  inside</td><td>是否正在上传</td></tr>
+                
+                <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outside  =&gt; inside</td><td>是否禁用</td></tr>
+                
+                <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td class="f-tac">outside  =&gt; inside</td><td>是否显示</td></tr>
+                
+                <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>补充class</td></tr>
+                
             
-            <tr><td class="f-wsn"><code>data.url</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>上传路径</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.dataType</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;json&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>接收数据类型。可以是：`text`、`xml`、`json`。</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.data</code></td><td class="f-wsn">object</td><td class="f-wsn"></td><td class="f-tac">outside  =&gt; inside</td><td>附加数据</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.name</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;file&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>上传文件的name</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.extensions</code></td><td class="f-wsn">string<br>string[]</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>可上传的扩展名。默认为空，表示可上传任意文件类型的文件；可以为字符串，多个扩展名用`,`隔开，如：&#39;png,jpg,gif&#39;；也可以为数组，如：[&#39;png&#39;, &#39;jpg&#39;, &#39;gif&#39;]。</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.maxSize</code></td><td class="f-wsn">string<br>number</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`。</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.sending</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outside &lt;=  inside</td><td>是否正在上传</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outside  =&gt; inside</td><td>是否禁用</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td class="f-tac">outside  =&gt; inside</td><td>是否显示</td></tr>
-            
-            <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>补充class</td></tr>
-            
-        
-    </tbody>
-</table>
+        </tbody>
+    </table>
+
 <div id="j-options"></div>
 
 
@@ -334,7 +336,7 @@
 
 var index = 0;
 (function (index) {
-    var template = "<uploader url=\"/upload\"\n    on-success={this._onSuccess($event)}\n    on-error={this._onError($event)}>\n    <button class=\"u-btn\">上传</button>\n</uploader>";
+    var template = "<uploader url=\"/upload\"\n    on-success={this._onSuccess($event)}\n    on-error={this._onError($event)}>\n    <button class=\"u-btn\">\u4E0A\u4F20</button>\n</uploader>";
     var component = new RGUI.Component({
         template: template,
         _onSuccess: function _onSuccess($event) {
@@ -347,14 +349,14 @@ var index = 0;
     component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
-    var template = "<uploader url=\"/upload\" disabled>\n    <button class=\"u-btn\" disabled>上传</button>\n</uploader>";
+    var template = "<uploader url=\"/upload\" disabled>\n    <button class=\"u-btn\" disabled>\u4E0A\u4F20</button>\n</uploader>";
     var component = new RGUI.Component({
         template: template
     });
     component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
-    var template = "<uploader url=\"/upload\" extensions=\"jpg,gif,png\"\n    on-success={this._onSuccess($event)}\n    on-error={this._onError($event)}>\n    <button class=\"u-btn\">上传</button>\n</uploader>";
+    var template = "<uploader url=\"/upload\" extensions=\"jpg,gif,png\"\n    on-success={this._onSuccess($event)}\n    on-error={this._onError($event)}>\n    <button class=\"u-btn\">\u4E0A\u4F20</button>\n</uploader>";
     var component = new RGUI.Component({
         template: template,
         _onSuccess: function _onSuccess($event) {
@@ -367,7 +369,7 @@ var index = 0;
     component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
-    var template = "<uploader url=\"/upload\" maxSize=\"10kB\"\n    on-success={this._onSuccess($event)}\n    on-error={this._onError($event)}>\n    <button class=\"u-btn\">上传</button>\n</uploader>";
+    var template = "<uploader url=\"/upload\" maxSize=\"10kB\"\n    on-success={this._onSuccess($event)}\n    on-error={this._onError($event)}>\n    <button class=\"u-btn\">\u4E0A\u4F20</button>\n</uploader>";
     var component = new RGUI.Component({
         template: template,
         _onSuccess: function _onSuccess($event) {
