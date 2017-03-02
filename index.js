@@ -1,3 +1,3 @@
-import Uploader from './uploader';
+import Uploader from './src/uploader';
 
 export { Uploader };
