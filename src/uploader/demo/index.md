@@ -83,3 +83,31 @@ var component = new RGUI.Component({
     }
 });
 ```
+
+### 显示上传进度条
+
+<div class="m-example"></div>
+
+```xml
+<uploader url="/upload"
+    on-success={this._onSuccess($event)}
+    on-error={this._onError($event)}
+    on-progress={this._onProgress($event)}>
+    <button class="u-btn">上传</button>
+</uploader>
+```
+
+```javascript
+var component = new RGUI.Component({
+    template: template,
+    _onSuccess: function($event) {
+        RGUI.Notify.success($event.data);
+    },
+    _onError: function($event) {
+        RGUI.Notify.error($event.message);
+    },
+    _onProgress($event) {
+        RGUI.Notify.error($event.data);
+    },
+});
+```
