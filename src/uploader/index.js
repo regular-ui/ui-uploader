@@ -144,10 +144,32 @@ const Uploader = Component.extend({
             size: 0,
         };
 
+        const xhr = new XMLHttpRequest(),
+            formData = new FormData(this.$refs.form);
+
+        xhr.open('POST', this.data.url);
+
+        xhr.upload.onprogress = function (event) {
+            if (event.lengthComputable) {
+                /**
+                 * @event progress 发送中触发
+                 * @property {object} sender 事件发送对象
+                 * @property {object} data 待发送的数据
+                 */
+                this.$emit('progress', {
+                    sender: this,
+                    data: { loaded: event.loaded, total: event.total },
+                });
+            }
+        }.bind(this);
+
         if (!file || !file.name || !this._checkExtensions(file) || !this._checkSize(file))
             return;
 
         this.data.sending = true;
+
+
+
         /**
          * @event sending 发送前触发
          * @property {object} sender 事件发送对象
@@ -158,7 +180,8 @@ const Uploader = Component.extend({
             data: this.data.data,
         });
 
-        this.$refs.form.submit();
+        // this.$refs.form.submit();
+        xhr.send(formData);
     },
     /**
      * @method _onLoad() 接收数据回调
