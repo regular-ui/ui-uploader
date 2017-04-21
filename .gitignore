@@ -7,6 +7,3 @@ __*
 /tmp
 /docs
 /test-reports
-
-# 本地server测试
-server.js
