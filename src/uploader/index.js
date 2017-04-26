@@ -149,6 +149,14 @@ const Uploader = Component.extend({
 
         this.data.sending = true;
 
+        let fileName = file.name;
+        this.data.file = {
+            name: fileName,
+            extName: this.data.fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase(),
+            size: file.size
+        };
+
+
         /**
          * @event sending 发送前触发
          * @property {object} sender 事件发送对象
@@ -180,6 +188,20 @@ const Uploader = Component.extend({
                     });
                 }
             }.bind(this);
+
+            xhr.onreadystatechange = () => {
+                if(xhr.readyState == 4){
+                    if(xhr.status == 200){
+                        this._onLoad(xhr.responseText,xhr.responseXML)
+                    }else{
+                        this.$emit('error', {
+                            sender: this,
+                            name: 'ResponseError',
+                            message: 'No responseText!',
+                        });
+                    }
+                }
+            }
             xhr.send(formData);
         }
     },
@@ -188,20 +210,29 @@ const Uploader = Component.extend({
      * @private
      * @return {void}
      */
-    _onLoad() {
+    _onLoad(responseText,responseXML) {
         const $iframe = this.$refs.iframe;
+        const file = this.data.file;
 
         if (!this.data.sending)
             return;
         this.data.sending = false;
+        this.data.file=null;
 
         const xml = {};
-        if ($iframe.contentWindow) {
-            xml.responseText = $iframe.contentWindow.document.body ? $iframe.contentWindow.document.body.innerText : null;
-            xml.responseXML = $iframe.contentWindow.document.XMLDocument ? $iframe.contentWindow.document.XMLDocument : $iframe.contentWindow.document;
-        } else if ($iframe.contentDocument) {
-            xml.responseText = $iframe.contentDocument.document.body ? $iframe.contentDocument.document.body.innerText : null;
-            xml.responseXML = $iframe.contentDocument.document.XMLDocument ? $iframe.contentDocument.document.XMLDocument : $iframe.contentDocument.document;
+
+        if(!!responseText||!!responseXML){
+            //ajax上传时数据处理
+            xml.responseText = responseText;
+            xml.responseXML = responseXML;
+        }else{
+            if ($iframe.contentWindow) {
+                xml.responseText = $iframe.contentWindow.document.body ? $iframe.contentWindow.document.body.innerText : null;
+                xml.responseXML = $iframe.contentWindow.document.XMLDocument ? $iframe.contentWindow.document.XMLDocument : $iframe.contentWindow.document;
+            } else if ($iframe.contentDocument) {
+                xml.responseText = $iframe.contentDocument.document.body ? $iframe.contentDocument.document.body.innerText : null;
+                xml.responseXML = $iframe.contentDocument.document.XMLDocument ? $iframe.contentDocument.document.XMLDocument : $iframe.contentDocument.document;
+            }
         }
 
         if (!xml.responseText) {
@@ -236,6 +267,7 @@ const Uploader = Component.extend({
         this.$emit('success', {
             sender: this,
             data: this._parseData(xml, this.data.dataType),
+            file: file,
         });
     },
     /**
