@@ -149,13 +149,12 @@ const Uploader = Component.extend({
 
         this.data.sending = true;
 
-        let fileName = file.name;
+        const fileName = file.name;
         this.data.file = {
             name: fileName,
-            extName: fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase(),
-            size: file.size
+            extName: this.data.fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase(),
+            size: file.size,
         };
-
 
         /**
          * @event sending 发送前触发
@@ -190,10 +189,10 @@ const Uploader = Component.extend({
             }.bind(this);
 
             xhr.onreadystatechange = () => {
-                if(xhr.readyState == 4){
-                    if(xhr.status == 200){
-                        this._onLoad(xhr.responseText,xhr.responseXML)
-                    }else{
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200)
+                        this._onLoad(xhr.responseText, xhr.responseXML);
+                    else {
                         this.$emit('error', {
                             sender: this,
                             name: 'ResponseError',
@@ -201,7 +200,7 @@ const Uploader = Component.extend({
                         });
                     }
                 }
-            }
+            };
             xhr.send(formData);
         }
     },
@@ -210,22 +209,22 @@ const Uploader = Component.extend({
      * @private
      * @return {void}
      */
-    _onLoad(responseText,responseXML) {
+    _onLoad(responseText, responseXML) {
         const $iframe = this.$refs.iframe;
         const file = this.data.file;
 
         if (!this.data.sending)
             return;
         this.data.sending = false;
-        this.data.file=null;
+        this.data.file = null;
 
         const xml = {};
 
-        if(!!responseText||!!responseXML){
-            //ajax上传时数据处理
+        if (!!responseText || !!responseXML) {
+            // ajax上传时数据处理
             xml.responseText = responseText;
             xml.responseXML = responseXML;
-        }else{
+        } else {
             if ($iframe.contentWindow) {
                 xml.responseText = $iframe.contentWindow.document.body ? $iframe.contentWindow.document.body.innerText : null;
                 xml.responseXML = $iframe.contentWindow.document.XMLDocument ? $iframe.contentWindow.document.XMLDocument : $iframe.contentWindow.document;
@@ -267,7 +266,7 @@ const Uploader = Component.extend({
         this.$emit('success', {
             sender: this,
             data: this._parseData(xml, this.data.dataType),
-            file: file,
+            file,
         });
     },
     /**
