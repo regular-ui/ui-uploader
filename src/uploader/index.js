@@ -194,6 +194,10 @@ const Uploader = Component.extend({
                     if(xhr.status == 200){
                         this._onLoad(xhr.responseText,xhr.responseXML)
                     }else{
+                        if (!this.data.sending)
+                            return;
+                        this.data.sending = false;
+                        this.data.file=null;
                         this.$emit('error', {
                             sender: this,
                             name: 'ResponseError',
