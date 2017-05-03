@@ -1,0 +1,15 @@
+<div class="uploader-pro">
+    {#list fileList as file}
+        <div class="item file-{file.extName}">
+            {#inc @(fileTemplate)}
+        </div>
+    {/list}
+    <uploader url="http://local.163.com/api/upload" extensions={extensions}
+              maxSize={maxSize}
+              disabled={disabled}
+              on-success={this._onSuccess($event)}
+              on-error={this._onError($event)}>
+        {#inc @(uploadTemplate)}
+    </uploader>
+</div>
+

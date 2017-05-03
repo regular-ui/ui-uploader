@@ -1,1 +1,2 @@
 @import './src/uploader/index.mcss';
+@import './src/uploaderPro/index.mcss';

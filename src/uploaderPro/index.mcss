@@ -1,0 +1,64 @@
+.uploader-pro {
+    .uploader-btn{
+        float: left;
+        width: 120px;
+        height: 150px;
+        border: 1px solid #3c8dbc;
+        color: #3c8dbc;
+        font-size: 60px;
+        line-height: 128px;
+        text-align: center;
+        cursor: pointer;
+        margin: 10px 20px 10px 0px;
+    }
+    .file-item{
+        position: relative;
+        float: left;
+        margin: 10px 20px 10px 0px;
+        width: 120px;
+        height: 150px;
+        border: 1px solid #eee;
+        color: #3c8dbc;
+        line-height: 117px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .file-name{
+        position: absolute;
+        bottom: 0px;
+        left: -1px;
+        width: 102px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        margin: 0px;
+        color: #fff;
+        background-color: #3c8dbc;
+        overflow: hidden;
+        word-wrap: normal;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 0px 10px;
+    }
+    .file-item:hover{
+        .delete{
+            display: block;
+        }
+    }
+    .delete{
+        position: absolute;
+        display: none;
+        right: 7px;
+        top: 6px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 15px;
+        color: #3c8dbc;
+    }
+    .delete:after{
+        content: 'X';
+    }
+    .extName{
+        font: 30px "Microsoft YaHei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+    }
+}
