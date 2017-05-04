@@ -4,7 +4,7 @@
             {#inc @(fileTemplate)}
         </div>
     {/list}
-    <uploader url="http://local.163.com/api/upload" extensions={extensions}
+    <uploader url={url} extensions={extensions}
               maxSize={maxSize}
               disabled={disabled}
               on-success={this._onSuccess($event)}

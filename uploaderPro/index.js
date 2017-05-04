@@ -24,7 +24,7 @@ const UploaderPro = Component.extend({
     config() {
         this.defaults({
             message: 'uploaderPro',
-            fileList: [{ name: '1.jpg', extName: 'jpg' }, { name: '2.jpg', extName: 'jpg' }, { name: '3.jpg', extName: 'jpg' }],
+            fileList: [],
             fileTemplate,
             uploadTemplate,
         });

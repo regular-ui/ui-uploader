@@ -152,7 +152,7 @@ const Uploader = Component.extend({
         let fileName = file.name;
         this.data.file = {
             name: fileName,
-            extName: fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase(),
+            extName: fileName.indexOf('.')!==-1?fileName.substring(fileName.lastIndexOf('.') + 1, fileName.length).toLowerCase():undefined,
             size: file.size
         };
 

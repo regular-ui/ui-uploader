@@ -1,6 +1,6 @@
 <div class="file-item">
     <span class="delete" on-click={this._removeFiles(file_index)}></span>
-    <i class="extName">{file.extName}</i>
+    <i class="extName">{file.extName||'?'}</i>
     <i class="icon icon-{file.extName}"></i>
     <p class="file-name">{file.name}</p>
 </div>

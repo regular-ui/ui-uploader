@@ -24,7 +24,7 @@ const UploaderPro = Component.extend({
     config() {
         this.defaults({
             message: 'uploaderPro',
-            fileList: [{name:"1.jpg",extName:"jpg"},{name:"2.jpg",extName:"jpg"},{name:"3.jpg",extName:"jpg"}],
+            fileList: [],
             fileTemplate:fileTemplate,
             uploadTemplate:uploadTemplate,
         });
@@ -68,7 +68,7 @@ const UploaderPro = Component.extend({
     _removeFiles(index) {
         const delFile=this.data.fileList.splice(index,1);
         this.$emit('fileDel',{file:delFile});
-    }
+    },
 });
 
 export default UploaderPro;
