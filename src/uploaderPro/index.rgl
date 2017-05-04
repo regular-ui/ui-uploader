@@ -1,4 +1,4 @@
-<div class="uploader-pro">
+<div class="uploader-pro {clazz||class}" r-class={{'z-dis':disabled}}>
     {#list fileList as file}
         <div class="item file-{file.extName}">
             {#inc @(fileTemplate)}
@@ -8,7 +8,9 @@
               maxSize={maxSize}
               disabled={disabled}
               on-success={this._onSuccess($event)}
-              on-error={this._onError($event)}>
+              on-error={this._onError($event)}
+              dataType={dataType}
+    >
         {#inc @(uploadTemplate)}
     </uploader>
 </div>
