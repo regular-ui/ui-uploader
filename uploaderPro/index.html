@@ -3,7 +3,7 @@
 <head>
 <!-- 该文件由rgui-tools自动生成 -->
 <meta charset="utf-8">
-<title>Regular UI - Uploader</title>
+<title>Regular UI - UploaderPro</title>
 <meta name="author" content="Rainfore">
 <meta name="keywords" content="Regular,UI,JavaScript,Framework,MVC,MVVM">
 <meta name="description" content="Regular UI">
@@ -34,45 +34,26 @@
 </div>
 <div class="g-bd"><div class="g-bdc"><div class="g-mn g-mn-center">
     <article class="m-article">
-        <h1>上传<small> Uploader</small></h1>
+        <h1>样例<small> UploaderPro</small></h1>
         <h2 id="示例">示例</h2>
 <h3 id="基本形式">基本形式</h3>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span>
-    <span class="cm-attribute">on-success</span>=<span class="cm-attribute">{this._onSuccess($event)}</span>
-    <span class="cm-attribute">on-error</span>=<span class="cm-attribute">{this._onError($event)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>上传<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">uploader</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploaderPro</span><span class="cm-tagcm-bracket">/&gt;</span>
 </code></pre>
-<pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
-    <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
-    <span class="cm-property">_onSuccess</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
-        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">success</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">data</span>);
-    },
-    <span class="cm-property">_onError</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
-        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">error</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">message</span>);
-    }
-});
-</code></pre>
-<blockquote>
-<p>注意：在IE中实现上传功能时，需要将响应头的<code>Content-Type</code>设置为<code>text/plain</code>或<code>text/html</code>，而不能是<code>application/json</code>，否则IE会提示用户下载返回的数据。</p>
-</blockquote>
 <h3 id="禁用组件">禁用组件</h3>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>上传<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">uploader</span><span class="cm-tagcm-bracket">&gt;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploaderPro</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">disabled</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">uploaderPro</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <h3 id="文件类型限制">文件类型限制</h3>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">extensions</span>=<span class="cm-string">&quot;jpg,gif,png&quot;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploaderPro</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">extensions</span>=<span class="cm-string">&quot;jpg,gif,png&quot;</span>
     <span class="cm-attribute">on-success</span>=<span class="cm-attribute">{this._onSuccess($event)}</span>
     <span class="cm-attribute">on-error</span>=<span class="cm-attribute">{this._onError($event)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
-    <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>上传<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">uploader</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">uploaderPro</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -87,11 +68,11 @@
 <h3 id="文件大小限制">文件大小限制</h3>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">maxSize</span>=<span class="cm-string">&quot;10kB&quot;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploaderPro</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span> <span class="cm-attribute">maxSize</span>=<span class="cm-string">&quot;10kB&quot;</span>
     <span class="cm-attribute">on-success</span>=<span class="cm-attribute">{this._onSuccess($event)}</span>
     <span class="cm-attribute">on-error</span>=<span class="cm-attribute">{this._onError($event)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>上传<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">uploader</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">uploaderPro</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -103,15 +84,24 @@
     }
 });
 </code></pre>
-<h3 id="显示上传进度条">显示上传进度条</h3>
+<h3 id="自定义预览与上传">自定义预览与上传</h3>
+<h4 id="重写组件的filetemplate与uploadtemplate属性，可自定义上传文件预览与上传按钮，filetemplate中可访问到file及filelist">重写组件的fileTemplate与uploadTemplate属性，可自定义上传文件预览与上传按钮，fileTemplate中可访问到file及fileList</h4>
+<p>file格式</p>
+<pre class="lang-json"><code>{
+    <span class="cm-variable">name</span>: <span class="cm-variable">fileName</span>,
+    <span class="cm-variable">extName</span>:<span class="cm-variable">extName</span>,
+    <span class="cm-variable">size</span>:<span class="cm-variable">size</span>,
+    <span class="cm-variable">data</span>:<span class="cm-variable">上</span><span class="cm-variable">传</span><span class="cm-variable">后</span><span class="cm-variable">后</span><span class="cm-variable">端</span><span class="cm-variable">返</span><span class="cm-variable">回</span><span class="cm-variable">值</span>
+}
+</code></pre>
+<p>ps:文件缩略图预览可从data中取上传后缩略图地址</p>
 <div class="m-example"></div>
 
-<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploader</span> <span class="cm-attribute">url</span>=<span class="cm-string">&quot;/upload&quot;</span>
+<pre class="lang-xml"><code><span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">uploaderPro</span>  <span class="cm-attribute">fileTemplate</span>=<span class="cm-string">&quot;&lt;p&gt;{file.name}&lt;/p&gt;&quot;</span> <span class="cm-attribute">uploadTemplate</span>=<span class="cm-string">&quot;&lt;button&gt;上传文件&lt;/button&gt;&quot;</span>
     <span class="cm-attribute">on-success</span>=<span class="cm-attribute">{this._onSuccess($event)}</span>
-    <span class="cm-attribute">on-error</span>=<span class="cm-attribute">{this._onError($event)}</span>
-    <span class="cm-attribute">on-progress</span>=<span class="cm-attribute">{this._onProgress($event)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
+    <span class="cm-attribute">on-error</span>=<span class="cm-attribute">{this._onError($event)}</span><span class="cm-tagcm-bracketcm-error">&gt;</span>
     <span class="cm-tagcm-bracket">&lt;</span><span class="cm-tag">button</span> <span class="cm-attribute">class</span>=<span class="cm-string">&quot;u-btn&quot;</span><span class="cm-tagcm-bracket">&gt;</span>上传<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">button</span><span class="cm-tagcm-bracket">&gt;</span>
-<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">uploader</span><span class="cm-tagcm-bracket">&gt;</span>
+<span class="cm-tagcm-bracket">&lt;/</span><span class="cm-tag">uploaderPro</span><span class="cm-tagcm-bracket">&gt;</span>
 </code></pre>
 <pre class="lang-javascript"><code><span class="cm-keyword">var</span> <span class="cm-variable">component</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">RGUI</span>.<span class="cm-property">Component</span>({
     <span class="cm-property">template</span>: <span class="cm-variable">template</span>,
@@ -120,10 +110,7 @@
     },
     <span class="cm-property">_onError</span>: <span class="cm-keyword">function</span>(<span class="cm-def">$event</span>) {
         <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">error</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">message</span>);
-    },
-    <span class="cm-property">_onProgress</span>(<span class="cm-def">$event</span>) {
-        <span class="cm-variable">RGUI</span>.<span class="cm-property">Notify</span>.<span class="cm-property">error</span>(<span class="cm-variable-2">$event</span>.<span class="cm-property">data</span>);
-    },
+    }
 });
 </code></pre>
 
@@ -131,13 +118,13 @@
 
 
     <h3 id="Class">Class</h3>
-    <h4>Uploader</h4>
+    <h4>UploaderPro</h4>
     <p>继承自<strong></strong>。</p>
     <p></p>
     <div id="j-class"></div>
 
     <h3 id="Options">Options</h3>
-    <h4>new Uploader()</h4>
+    <h4>new UploaderPro()</h4>
     <table>
         <thead>
             <tr><th width="24%">参数</th><th width="16%">类型</th><th width="16%">默认值</th><th width="18%">数据流向</th><th width="26%">描述</th></tr>
@@ -159,13 +146,13 @@
                 
                 <tr><td class="f-wsn"><code>data.maxSize</code></td><td class="f-wsn">string<br>number</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`。</td></tr>
                 
-                <tr><td class="f-wsn"><code>data.sending</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outside &lt;=  inside</td><td>是否正在上传</td></tr>
-                
                 <tr><td class="f-wsn"><code>data.disabled</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>false</code></td><td class="f-tac">outside  =&gt; inside</td><td>是否禁用</td></tr>
                 
-                <tr><td class="f-wsn"><code>data.visible</code></td><td class="f-wsn">boolean</td><td class="f-wsn"><code>true</code></td><td class="f-tac">outside  =&gt; inside</td><td>是否显示</td></tr>
-                
                 <tr><td class="f-wsn"><code>data.class</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>补充class</td></tr>
+                
+                <tr><td class="f-wsn"><code>data.fileTemplate</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;rgl template&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>上传文件预览模板</td></tr>
+                
+                <tr><td class="f-wsn"><code>data.uploadTemplate</code></td><td class="f-wsn">string</td><td class="f-wsn"><code>&#39;rgl template&#39;</code></td><td class="f-tac">outside  =&gt; inside</td><td>上传文件按钮模板</td></tr>
                 
             
         </tbody>
@@ -177,8 +164,30 @@
     <h3 id="Methods">Methods</h3>
     
     
-    <h4>uploader.upload()</h4>
-    <p>弹出文件对话框并且上传文件</p>
+    <h4>uploaderPro.getFileList()</h4>
+    <p>获取上传文件的列表</p>
+    <table>
+        <thead>
+            <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-tac" colspan="4">无参数</td></tr>
+            
+        </tbody>
+        <thead>
+            <tr><th width="25%">返回值</th><th width="25%">类型</th><th width="50%" colspan="2">描述</th></tr>
+        </thead>
+        <tbody>
+            
+                <tr><td class="f-wsn"><code>上传文件的列表</code></td><td class="f-wsn">Array</td><td colspan="2"></td></tr>
+            
+        </tbody>
+    </table>
+    
+    
+    <h4>uploaderPro.clearFileList()</h4>
+    <p>清空上传文件的列表</p>
     <table>
         <thead>
             <tr><th width="25%">参数</th><th width="25%">类型</th><th width="25%">默认值</th><th width="25%">描述</th></tr>
@@ -208,147 +217,6 @@
 <div id="j-inheritedMethods"></div>
 
 
-    <h3 id="Events">Events</h3>
-    
-    
-    <h4>uploader.$on('error')</h4>
-    <p>上传错误时触发</p>
-    <table>
-        <thead>
-            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
-        </thead>
-        <tbody>
-            
-                
-                <tr><td class="f-wsn"><code>sender</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发送对象</td></tr>
-                
-                <tr><td class="f-wsn"><code>name</code></td><td class="f-wsn">object</td><td class="f-wsn">ExtensionError</td></tr>
-                
-                <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">错误信息</td></tr>
-                
-                <tr><td class="f-wsn"><code>extensions</code></td><td class="f-wsn">object</td><td class="f-wsn">可上传的扩展名</td></tr>
-                
-            
-        </tbody>
-    </table>
-    
-    
-    <h4>uploader.$on('error')</h4>
-    <p>上传错误时触发</p>
-    <table>
-        <thead>
-            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
-        </thead>
-        <tbody>
-            
-                
-                <tr><td class="f-wsn"><code>sender</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发送对象</td></tr>
-                
-                <tr><td class="f-wsn"><code>name</code></td><td class="f-wsn">object</td><td class="f-wsn">SizeError</td></tr>
-                
-                <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">错误信息</td></tr>
-                
-                <tr><td class="f-wsn"><code>maxSize</code></td><td class="f-wsn">object</td><td class="f-wsn">可上传的最大文件大小</td></tr>
-                
-                <tr><td class="f-wsn"><code>size</code></td><td class="f-wsn">object</td><td class="f-wsn">当前文件大小</td></tr>
-                
-            
-        </tbody>
-    </table>
-    
-    
-    <h4>uploader.$on('sending')</h4>
-    <p>发送前触发</p>
-    <table>
-        <thead>
-            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
-        </thead>
-        <tbody>
-            
-                
-                <tr><td class="f-wsn"><code>sender</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发送对象</td></tr>
-                
-                <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn">待发送的数据</td></tr>
-                
-            
-        </tbody>
-    </table>
-    
-    
-    <h4>uploader.$on('progress')</h4>
-    <p>发送中触发</p>
-    <table>
-        <thead>
-            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
-        </thead>
-        <tbody>
-            
-                
-                <tr><td class="f-wsn"><code>sender</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发送对象</td></tr>
-                
-                <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn">待发送的数据</td></tr>
-                
-            
-        </tbody>
-    </table>
-    
-    
-    <h4>uploader.$on('error')</h4>
-    <p>上传错误时触发</p>
-    <table>
-        <thead>
-            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
-        </thead>
-        <tbody>
-            
-                
-                <tr><td class="f-wsn"><code>sender</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发送对象</td></tr>
-                
-                <tr><td class="f-wsn"><code>name</code></td><td class="f-wsn">object</td><td class="f-wsn">ResponseError</td></tr>
-                
-                <tr><td class="f-wsn"><code>message</code></td><td class="f-wsn">object</td><td class="f-wsn">错误信息</td></tr>
-                
-            
-        </tbody>
-    </table>
-    
-    
-    <h4>uploader.$on('complete')</h4>
-    <p>上传完成时触发</p>
-    <table>
-        <thead>
-            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
-        </thead>
-        <tbody>
-            
-                
-                <tr><td class="f-wsn"><code>sender</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发送对象</td></tr>
-                
-                <tr><td class="f-wsn"><code>xml</code></td><td class="f-wsn">object</td><td class="f-wsn">返回的xml</td></tr>
-                
-            
-        </tbody>
-    </table>
-    
-    
-    <h4>uploader.$on('success')</h4>
-    <p>上传成功时触发</p>
-    <table>
-        <thead>
-            <tr><th width="33%">属性</th><th width="33%">类型</th><th width="33%">描述</th></tr>
-        </thead>
-        <tbody>
-            
-                
-                <tr><td class="f-wsn"><code>sender</code></td><td class="f-wsn">object</td><td class="f-wsn">事件发送对象</td></tr>
-                
-                <tr><td class="f-wsn"><code>data</code></td><td class="f-wsn">object</td><td class="f-wsn">返回的数据</td></tr>
-                
-            
-        </tbody>
-    </table>
-    
-
 <div id="j-events"></div>
 
 
@@ -377,27 +245,21 @@
 
 var index = 0;
 (function (index) {
-    var template = "<uploader url=\"/upload\"\n    on-success={this._onSuccess($event)}\n    on-error={this._onError($event)}>\n    <button class=\"u-btn\">\u4E0A\u4F20</button>\n</uploader>";
-    var component = new RGUI.Component({
-        template: template,
-        _onSuccess: function _onSuccess($event) {
-            RGUI.Notify.success($event.data);
-        },
-        _onError: function _onError($event) {
-            RGUI.Notify.error($event.message);
-        }
-    });
-    component && component.$inject($$(".m-example")[index]);
-})(index++);
-(function (index) {
-    var template = "<uploader url=\"/upload\" disabled>\n    <button class=\"u-btn\" disabled>\u4E0A\u4F20</button>\n</uploader>";
+    var template = "<uploaderPro/>";
     var component = new RGUI.Component({
         template: template
     });
     component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
-    var template = "<uploader url=\"/upload\" extensions=\"jpg,gif,png\"\n    on-success={this._onSuccess($event)}\n    on-error={this._onError($event)}>\n    <button class=\"u-btn\">\u4E0A\u4F20</button>\n</uploader>";
+    var template = "<uploaderPro url=\"/upload\" disabled>\n</uploaderPro>";
+    var component = new RGUI.Component({
+        template: template
+    });
+    component && component.$inject($$(".m-example")[index]);
+})(index++);
+(function (index) {
+    var template = "<uploaderPro url=\"/upload\" extensions=\"jpg,gif,png\"\n    on-success={this._onSuccess($event)}\n    on-error={this._onError($event)}>\n</uploaderPro>";
     var component = new RGUI.Component({
         template: template,
         _onSuccess: function _onSuccess($event) {
@@ -410,7 +272,7 @@ var index = 0;
     component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
-    var template = "<uploader url=\"/upload\" maxSize=\"10kB\"\n    on-success={this._onSuccess($event)}\n    on-error={this._onError($event)}>\n    <button class=\"u-btn\">\u4E0A\u4F20</button>\n</uploader>";
+    var template = "<uploaderPro url=\"/upload\" maxSize=\"10kB\"\n    on-success={this._onSuccess($event)}\n    on-error={this._onError($event)}>\n    <button class=\"u-btn\">\u4E0A\u4F20</button>\n</uploaderPro>";
     var component = new RGUI.Component({
         template: template,
         _onSuccess: function _onSuccess($event) {
@@ -423,7 +285,7 @@ var index = 0;
     component && component.$inject($$(".m-example")[index]);
 })(index++);
 (function (index) {
-    var template = "<uploader url=\"/upload\"\n    on-success={this._onSuccess($event)}\n    on-error={this._onError($event)}\n    on-progress={this._onProgress($event)}>\n    <button class=\"u-btn\">\u4E0A\u4F20</button>\n</uploader>";
+    var template = "<uploaderPro  fileTemplate=\"<p>{file.name}</p>\" uploadTemplate=\"<button>\u4E0A\u4F20\u6587\u4EF6</button>\"\n    on-success={this._onSuccess($event)}\n    on-error={this._onError($event)}>\n    <button class=\"u-btn\">\u4E0A\u4F20</button>\n</uploaderPro>";
     var component = new RGUI.Component({
         template: template,
         _onSuccess: function _onSuccess($event) {
@@ -431,9 +293,6 @@ var index = 0;
         },
         _onError: function _onError($event) {
             RGUI.Notify.error($event.message);
-        },
-        _onProgress: function _onProgress($event) {
-            RGUI.Notify.error($event.data);
         }
     });
     component && component.$inject($$(".m-example")[index]);
