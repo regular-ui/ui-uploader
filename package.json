@@ -1,7 +1,7 @@
 {
   "name": "rgui-ui-uploader",
   "description": "Regular UI - Uploader",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "Rainfore <rainforest92@126.com>",
   "main": "./index.js",
   "repository": "regular-ui/ui-uploader",
