@@ -16,7 +16,7 @@ const SIZE_UNITS = {
  * @param {string='json'}           options.data.dataType            => 接收数据类型。可以是：`text`、`xml`、`json`。
  * @param {Object}                  options.data.data                => 附加数据
  * @param {string='file'}           options.data.name                => 上传文件的name
- * @param {string|string[]=''}      options.data.extensions          => 可上传的扩展名。默认为空，表示可上传任意文件类型的文件；可以为字符串，多个扩展名用`,`隔开，如：'png,jpg,gif'；也可以为数组，如：['png', 'jpg', 'gif']。
+ * @param {string|string[]=''}      options.data.extensions          => 可上传的扩展名。默认为空，表示可上传任意文件类型的文件；可以为字符串，多个扩展名用`,`隔开，如：'png,jpg,gif,noext'；也可以为数组，如：['png', 'jpg', 'gif', 'noext']。'noext'表示允许文件没有扩展名。
  * @param {string|number=''}        options.data.maxSize             => 可上传的最大文件大小。默认为空，表示可上传任意大小的文件；如果为数字，则表示单位为字节；如果为字符串，可以添加以下单位：`kB`、`MB`、`GB`。
  * @param {boolean=false}           options.data.sending            <=  是否正在上传
  * @param {boolean=false}           options.data.disabled            => 是否禁用
@@ -73,6 +73,9 @@ const Uploader = Component.extend({
             extensions = extensions.split(',');
 
         if (extensions.includes(extName))
+            return true;
+
+        if (extensions.includes('noext') && !extName.includes('.'))
             return true;
 
         /**
@@ -189,8 +192,8 @@ const Uploader = Component.extend({
             }.bind(this);
 
             xhr.onreadystatechange = () => {
-                if (xhr.readyState == 4) {
-                    if (xhr.status == 200)
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200)
                         this._onLoad(xhr.responseText, xhr.responseXML);
                     else {
                         if (!this.data.sending)
@@ -214,6 +217,7 @@ const Uploader = Component.extend({
      * @return {void}
      */
     _onLoad(responseText, responseXML) {
+        if (!this.$refs) return;
         const $iframe = this.$refs.iframe;
         const file = this.data.file;
 

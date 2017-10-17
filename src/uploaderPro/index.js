@@ -31,8 +31,8 @@ const UploaderPro = Component.extend({
         this.defaults({
             message: 'uploaderPro',
             fileList: [],
-            fileTemplate:fileTemplate,
-            uploadTemplate:uploadTemplate,
+            fileTemplate,
+            uploadTemplate,
         });
         this.supr();
     },
@@ -40,13 +40,13 @@ const UploaderPro = Component.extend({
         this.$emit('input', $event);
     },
     _onSuccess($event) {
-        let file=Object.assign({},$event.file);
-        file.data=$event.data;
+        const file = Object.assign({}, $event.file);
+        file.data = $event.data;
         this._addFiles(file);
         this.$emit('success', {
             sender: this,
             data: $event.data,
-            file: $event.file
+            file: $event.file,
         });
     },
     _onError($event) {
@@ -57,17 +57,17 @@ const UploaderPro = Component.extend({
         });
     },
     _addFiles(files) {
-        if(files instanceof Array){
+        if (files instanceof Array) {
             this.data.fileList.concat(files);
-            this.$emit('fileAdd',{file:files});
-        }else{
+            this.$emit('fileAdd', { file: files });
+        } else {
             this.data.fileList.push(files);
-            this.$emit('fileAdd',{file:[files]});
+            this.$emit('fileAdd', { file: [files] });
         }
     },
     _removeFiles(index) {
-        const delFile=this.data.fileList.splice(index,1);
-        this.$emit('fileDel',{file:delFile});
+        const delFile = this.data.fileList.splice(index, 1);
+        this.$emit('fileDel', { file: delFile });
     },
     /**
      * @method getFileList() 获取上传文件的列表
@@ -83,9 +83,9 @@ const UploaderPro = Component.extend({
      * @return {void}
      */
     clearFileList() {
-        this.data.fileList=[];
+        this.data.fileList = [];
         this.$update();
-    }
+    },
 });
 
 export default UploaderPro;
