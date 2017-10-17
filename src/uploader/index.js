@@ -218,6 +218,7 @@ const Uploader = Component.extend({
      * @return {void}
      */
     _onLoad(responseText,responseXML) {
+        if (!this.$refs) return;
         const $iframe = this.$refs.iframe;
         const file = this.data.file;
 
